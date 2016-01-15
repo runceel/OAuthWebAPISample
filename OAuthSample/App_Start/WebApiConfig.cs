@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using Microsoft.Owin.Security.OAuth;
 using System.Web.Http;
 
 namespace OAuthSample
@@ -10,6 +8,9 @@ namespace OAuthSample
         public static void Register(HttpConfiguration config)
         {
             // Web API の設定およびサービス
+            // 以下の2行を追加
+            config.SuppressDefaultHostAuthentication();
+            config.Filters.Add(new HostAuthenticationFilter(OAuthDefaults.AuthenticationType));
 
             // Web API ルート
             config.MapHttpAttributeRoutes();

@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net;
-using System.Net.Http;
-using System.Web.Http;
+﻿using System.Web.Http;
 
 namespace OAuthSample.Controllers
 {
+    [Authorize]
     public class CalcController : ApiController
     {
         public IHttpActionResult Get(int x, int y)
